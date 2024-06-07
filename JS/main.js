@@ -1,7 +1,10 @@
 let uname = document.getElementById('username')
 let umail = document.getElementById('usermail')
 let upass = document.getElementById('userpassword')
+let lname = document.getElementById('loginmail')
+let lpass = document.getElementById('loginpass')
 let arr;
+let user
 if(localStorage.getItem('user') == null){
     arr = []
 }
@@ -50,7 +53,65 @@ function store(){
                 document.getElementById('empty').classList.add('d-none')
                 document.getElementById('repeated').classList.add('d-none')
                 document.getElementById('valid').classList.add('d-none')
+                window.location = 'index.html'
             }
         }
     }
+}
+
+function check(){
+    correctmail = correctpass = false
+    if(lname.value == "" || lpass.value == ""){
+        document.getElementById('emp').classList.remove('d-none')
+        document.getElementById('mailIncorrect').classList.add('d-none')
+        document.getElementById('passwordIncorrect').classList.add('d-none')
+        document.getElementById('both').classList.add('d-none')
+        document.getElementById('corr').classList.add('d-none')
+    }
+    else{
+        for(var i = 0;i<arr.length;i++){
+            if(arr[i].mail == lname.value){
+                correctmail = true
+                user = i
+                break
+            }
+        }
+        for(var i = 0;i<arr.length;i++){
+            if(arr[i].pass == lpass.value){
+                correctpass = true
+            }
+        }
+        if(correctmail && correctpass){
+            document.getElementById('corr').classList.remove('d-none')
+            document.getElementById('mailIncorrect').classList.add('d-none')
+            document.getElementById('passwordIncorrect').classList.add('d-none')
+            document.getElementById('both').classList.add('d-none')
+            document.getElementById('emp').classList.add('d-none')
+            window.location = "home.html"
+        }
+        else if(correctmail == true && correctpass == false){
+            document.getElementById('passwordIncorrect').classList.remove('d-none')
+            document.getElementById('mailIncorrect').classList.add('d-none')
+            document.getElementById('corr').classList.add('d-none')
+            document.getElementById('both').classList.add('d-none')
+            document.getElementById('emp').classList.add('d-none')
+        }
+        else if(correctmail == false && correctpass == true){
+            document.getElementById('mailIncorrect').classList.remove('d-none')
+            document.getElementById('passwordIncorrect').classList.add('d-none')
+            document.getElementById('corr').classList.add('d-none')
+            document.getElementById('both').classList.add('d-none')
+            document.getElementById('emp').classList.add('d-none')
+        }
+        else{
+            document.getElementById('both').classList.remove('d-none')
+            document.getElementById('passwordIncorrect').classList.add('d-none')
+            document.getElementById('corr').classList.add('d-none')
+            document.getElementById('mailIncorrect').classList.add('d-none')
+            document.getElementById('emp').classList.add('d-none')
+        }
+    }
+}
+function logout(){
+    window.location = 'index.html'
 }
