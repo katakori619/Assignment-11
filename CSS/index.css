@@ -1,6 +1,47 @@
 body {
     background-color: #24353f;
+    font-family: 'Titillium Web', sans-serif;
 }
 h1 {
     color: #17a2b8;
+}
+.container {
+    width: 60%;
+}
+input::placeholder {
+    color: rgb(177, 177, 177) !important;
+}
+.subparent {
+    box-shadow: -5px 2px 54px -9px rgba(0, 0, 0, 1);
+}
+p a:hover {
+    text-decoration: underline !important;
+}
+input:focus {
+    box-shadow: none !important;
+}
+.amogos:hover {
+    background-color: #17a2b8 !important;
+    border-color: #17a2b8 !important;
+    color: white !important;
+}
+nav {
+    background-color: #24353f !important;
+    box-shadow: -5px 2px 54px -9px rgba(0, 0, 0, 1);
+}
+.amogos2 {
+    color: rgb(188, 188, 188) !important;
+}
+.amogos2:hover {
+    color: white !important;
+}
+.container-fluid a {
+    color: white;
+    font-size: 1.25rem;
+}
+.parent {
+    width: 65%;
+}
+.parent h1 {
+    box-shadow: -5px 2px 54px -9px rgba(0, 0, 0, 1);
 }
