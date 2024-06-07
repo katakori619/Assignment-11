@@ -10,10 +10,14 @@
         <div class="container m-auto my-5">
             <div class="subparent p-5 d-flex flex-column align-items-center">
                 <h1>Smart Login System</h1>
-                <input type="text" placeholder="Enter your name" class="form-control bg-transparent my-2">
-                <input type="email" placeholder="Enter your email" class="form-control bg-transparent my-2">
-                <input type="password" placeholder="Enter your passwrod" class="form-control bg-transparent my-2">
-                <button class="btn btn-outline-info w-100 mt-4 mb-3 amogos">Sign Up</button>
+                <input type="text" placeholder="Enter your name" class="form-control bg-transparent my-2" id="username">
+                <input type="email" placeholder="Enter your email" class="form-control bg-transparent my-2" id="usermail">
+                <input type="password" placeholder="Enter your passwrod" class="form-control bg-transparent my-2" id="userpassword">
+                <p class="text-center text-success d-none mt-2" id="correct">Success</p>
+                <p class="text-center text-danger mt-2 d-none" id="repeated">Email already exists</p>
+                <p class="text-center text-danger mt-2 d-none" id="empty">All inputs is required</p>
+                <p class="text-center text-danger mt-2 d-none" id="valid">Enter a valid email</p>
+                <button class="btn btn-outline-info w-100 mt-3 mb-3 amogos" onclick="store()">Sign Up</button>
                 <p class="text-white">You have an account?
                     <a href="login.html" class="text-decoration-none text-white">Sign in</a>
                 </p>
