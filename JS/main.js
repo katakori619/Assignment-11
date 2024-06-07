@@ -4,7 +4,8 @@ let upass = document.getElementById('userpassword')
 let lname = document.getElementById('loginmail')
 let lpass = document.getElementById('loginpass')
 let arr;
-let user
+let x1 , x2
+let array = []
 if(localStorage.getItem('user') == null){
     arr = []
 }
@@ -53,7 +54,7 @@ function store(){
                 document.getElementById('empty').classList.add('d-none')
                 document.getElementById('repeated').classList.add('d-none')
                 document.getElementById('valid').classList.add('d-none')
-                window.location = 'index.html'
+                setTimeout(function(){window.location = 'index.html'},2000)
             }
         }
     }
@@ -71,25 +72,28 @@ function check(){
     else{
         for(var i = 0;i<arr.length;i++){
             if(arr[i].mail == lname.value){
+                x1 = i
                 correctmail = true
-                user = i
                 break
             }
         }
         for(var i = 0;i<arr.length;i++){
             if(arr[i].pass == lpass.value){
+                x2 = i
                 correctpass = true
             }
         }
-        if(correctmail && correctpass){
+        if((correctmail && correctpass) && (x1 == x2)){
+            array.push(x1)
+            localStorage.setItem('index',JSON.stringify(array))
             document.getElementById('corr').classList.remove('d-none')
             document.getElementById('mailIncorrect').classList.add('d-none')
             document.getElementById('passwordIncorrect').classList.add('d-none')
             document.getElementById('both').classList.add('d-none')
             document.getElementById('emp').classList.add('d-none')
-            window.location = "home.html"
+            setTimeout(function(){window.location = "home.html"} , 2000)
         }
-        else if(correctmail == true && correctpass == false){
+        else if((correctmail == true && correctpass == false) || (correctmail == true && correctpass == true && x1!=x2)){
             document.getElementById('passwordIncorrect').classList.remove('d-none')
             document.getElementById('mailIncorrect').classList.add('d-none')
             document.getElementById('corr').classList.add('d-none')
@@ -111,7 +115,4 @@ function check(){
             document.getElementById('emp').classList.add('d-none')
         }
     }
-}
-function logout(){
-    window.location = 'index.html'
 }
