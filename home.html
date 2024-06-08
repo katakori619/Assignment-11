@@ -7,13 +7,17 @@
         <link rel="stylesheet" href="CSS/index.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark px-5">
-            <div class="container-fluid justify-content-around">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="text-decoration-none" href="#">SMART LOGIN</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <a class="text-decoration-none" href="#">SMART LOGIN</a>
-              <button class="btn btn-outline-warning amogos2" type="submit" onclick="logout()" id="navbarSupportedContent">Logout</button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <div class="d-flex py-2">
+                  <button class="btn btn-outline-warning amogos2 w-100" type="submit" onclick="logout()">Logout</button>
+                </div>
+              </div>
             </div>
           </nav>
           <div class="container d-flex align-items-center justify-content-center w-100 h-75">

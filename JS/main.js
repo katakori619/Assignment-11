@@ -54,13 +54,14 @@ function store(){
                 document.getElementById('empty').classList.add('d-none')
                 document.getElementById('repeated').classList.add('d-none')
                 document.getElementById('valid').classList.add('d-none')
-                setTimeout(function(){window.location = 'index.html'},2000)
+                setTimeout(function(){window.location = 'index.html'},1400)
             }
         }
     }
 }
 
 function check(){
+    x1 = 0
     correctmail = correctpass = false
     if(lname.value == "" || lpass.value == ""){
         document.getElementById('emp').classList.remove('d-none')
@@ -79,8 +80,14 @@ function check(){
         }
         for(var i = 0;i<arr.length;i++){
             if(arr[i].pass == lpass.value){
-                x2 = i
-                correctpass = true
+                if(x1==i){
+                    x2 = i
+                    correctpass = true
+                    break
+                }
+                else if(x1==0){
+                    correctpass = true
+                }
             }
         }
         if((correctmail && correctpass) && (x1 == x2)){
@@ -91,7 +98,7 @@ function check(){
             document.getElementById('passwordIncorrect').classList.add('d-none')
             document.getElementById('both').classList.add('d-none')
             document.getElementById('emp').classList.add('d-none')
-            setTimeout(function(){window.location = "home.html"} , 2000)
+            setTimeout(function(){window.location = "home.html"} , 1400)
         }
         else if((correctmail == true && correctpass == false) || (correctmail == true && correctpass == true && x1!=x2)){
             document.getElementById('passwordIncorrect').classList.remove('d-none')
